@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;800&family=Roboto:wght@400;500;900&display=swap');
+@tailwind base;
+
+* {
+  font-family: 'Roboto';
+}
+
+body {
+  @apply text-gray-800;
+}
+
+.ui-styles-debug-test {
+  color: red;
+  border: 1px solid green;
+}
+
+.table-spacing {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 2px;
+  background-color: theme('colors.gray.300');
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  height: 30px;
+  background-color: theme('colors.gray.600');
+}
+
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+  }
+}
+
+.is-loading::before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: calc(50% - 14px);
+  right: calc(50% - 14px);
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  border: 7px solid rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.3);
+  animation: is-loading 2s infinite ease-in-out;
+}
+
+@keyframes is-loading {
+  0%,
+  100% {
+    transform: scale(0.1);
+  }
+  50% {
+    /* border-width: $border-size*0.2; */
+    border-width: 2px;
+    transform: scale(1.1);
+  }
+}
